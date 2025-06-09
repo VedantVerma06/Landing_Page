@@ -1,168 +1,51 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EliteTech - Elevate Your Skills</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
-      color: #333;
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark-mode {
-      background: #121212;
-      color: #f0f0f0;
-    }
-    header {
-      padding: 2rem;
-      text-align: center;
-      background-color: #6c63ff;
-      color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-    }
-    .cta {
-      margin: 2rem auto;
-      text-align: center;
-    }
-    .cta button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border: none;
-      background-color: #6c63ff;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .cta button:hover {
-      transform: scale(1.05);
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    form input {
-      padding: 0.7rem;
-      width: 80%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .toggle-theme {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #6c63ff;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-    }
-    .scroll-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: #6c63ff;
-      color: white;
-      padding: 0.7rem 1rem;
-      border: none;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: none;
-    }
-  </style>
+  <title>Intern Project</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
-
-  <header>
-    <h1>EliteTech Internship</h1>
-    <p>Launch your career with stunning web design</p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Professional Web Solutions</h1>
+      <p>Responsive, scalable, and user-focused web platforms.</p>
+      <a href="#contact" class="cta-button">Connect</a>
+    </div>
   </header>
 
-  <div class="cta">
-    <button onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})">Get Started</button>
-  </div>
-
-  <section class="reveal">
-    <h2>Why Choose Us?</h2>
-    <p>Build real projects, gain certifications, and join a tech-driven community ready to grow.</p>
+  <section class="features">
+    <h2>Core Modules</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>UI/UX Focused</h3>
+        <p>Crafted for clarity, performance, and ease of use across devices.</p>
+      </div>
+      <div class="feature">
+        <h3>Deployment Ready</h3>
+        <p>Code optimized and structured for direct integration and launch.</p>
+      </div>
+      <div class="feature">
+        <h3>Extensible</h3>
+        <p>Modular structure to accommodate additional features effortlessly.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="reveal">
-    <h2>Our Vision</h2>
-    <p>Creating future-ready developers with practical experience and mentorship.</p>
-  </section>
-
-  <section id="signup" class="reveal">
-    <h2>Join Now</h2>
-    <form onsubmit="return validateForm()">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <button type="submit">Sign Up</button>
+  <section id="contact" class="contact">
+    <h2>Reach Out</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <textarea placeholder="Your Query" required></textarea>
+      <button type="submit">Submit</button>
     </form>
   </section>
 
-  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+  <footer>
+    <p>&copy; 2025 Intern Development Project</p>
+  </footer>
 
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-
-    function validateForm() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      if (!name || !email) {
-        alert('Please fill out all fields.');
-        return false;
-      }
-      alert('Thanks for signing up, ' + name + '!');
-      return false;
-    }
-
-    window.addEventListener('scroll', () => {
-      document.querySelector('.scroll-top').style.display = window.scrollY > 200 ? 'block' : 'none';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
