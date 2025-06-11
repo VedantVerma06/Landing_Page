@@ -1,51 +1,74 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intern Project</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Internship</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Join a high-impact internship to build your career with real-world experience, mentorship, and networking opportunities.">
+  <meta property="og:title" content="Professional Internship">
+  <meta property="og:description" content="Build your career with a real-world internship experience.">
+  <meta property="og:type" content="website">
 </head>
+
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Professional Web Solutions</h1>
-      <p>Responsive, scalable, and user-focused web platforms.</p>
-      <a href="#contact" class="cta-button">Connect</a>
-    </div>
+  <header>
+    <h1>Internship Connect</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#apply">Apply</a>
+    </nav>
   </header>
 
-  <section class="features">
-    <h2>Core Modules</h2>
-    <div class="features-grid">
-      <div class="feature">
-        <h3>UI/UX Focused</h3>
-        <p>Crafted for clarity, performance, and ease of use across devices.</p>
-      </div>
-      <div class="feature">
-        <h3>Deployment Ready</h3>
-        <p>Code optimized and structured for direct integration and launch.</p>
-      </div>
-      <div class="feature">
-        <h3>Extensible</h3>
-        <p>Modular structure to accommodate additional features effortlessly.</p>
-      </div>
+  <section class="hero" id="about">
+    <h2>Launch Your Professional Journey</h2>
+    <p>Join a high-impact internship designed to build your skills, grow your network, and set you on a career path with confidence.</p>
+    <button onclick="scrollToApply()">Apply Now</button>
+  </section>
+
+  <section class="features" id="features">
+    <div class="feature">
+      <h3>Real-World Projects</h3>
+      <p>Work on impactful projects with expert mentorship from industry leaders.</p>
+    </div>
+    <div class="feature">
+      <h3>Professional Development</h3>
+      <p>Receive training in communication, leadership, and industry-specific tools.</p>
+    </div>
+    <div class="feature">
+      <h3>Networking Opportunities</h3>
+      <p>Connect with professionals, peers, and alumni to expand your career horizons.</p>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Reach Out</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <textarea placeholder="Your Query" required></textarea>
-      <button type="submit">Submit</button>
+  <section class="apply-section" id="apply">
+    <h2>Apply for the Internship</h2>
+    <form id="applicationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="resume">Upload Resume (PDF)</label>
+      <input type="file" id="resume" name="resume" accept="application/pdf" required>
+
+      <label for="message">Why are you interested in this internship?</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit Application</button>
     </form>
+    <p id="formMessage" class="form-message" aria-live="polite"></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Intern Development Project</p>
+    <p>&copy; 2025 Internship Connect. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
