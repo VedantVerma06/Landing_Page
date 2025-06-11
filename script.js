@@ -1,25 +1,15 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+function scrollToApply() {
+  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+}
 
-const form = document.querySelector('form');
-form.addEventListener('submit', function (e) {
+document.getElementById('applicationForm').addEventListener('submit', function (e) {
   e.preventDefault();
-  const name = form.querySelector('input[type="text"]').value.trim();
-  const email = form.querySelector('input[type="email"]').value.trim();
-  const message = form.querySelector('textarea').value.trim();
 
-  if (!name || !email || !message) {
-    alert("All fields are required.");
-    return;
-  }
+  // Normally, you would send this data to a server or service here.
+  // For demonstration, just show a success message.
+  const formMessage = document.getElementById('formMessage');
+  formMessage.textContent = 'Thank you for applying! We will review your application and get back to you soon.';
 
-  alert("Message sent successfully.");
-  form.reset();
+  // Optional: reset the form
+  this.reset();
 });
